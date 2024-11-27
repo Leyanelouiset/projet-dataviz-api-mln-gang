@@ -15,3 +15,4 @@ async function getAirQuality() {
   console.log("test API", indexAir);
 }
 //let result =getAirQuality()
+length
