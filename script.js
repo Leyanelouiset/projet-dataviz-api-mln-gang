@@ -52,9 +52,6 @@ async function getWaterQuality() {
     watercontainer.innerText = "Eau conforme !!";
   } else {
     watercontainer.innerText = "Eau non potable !!";
-  }else {
-    if
-    polution.innerHTML = `Données non disponibles pour la ville ${city}en vue de la taille de cette`;
   }
 }
 async function getElectricQuality(city) {
