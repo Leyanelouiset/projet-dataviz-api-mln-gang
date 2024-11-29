@@ -2,6 +2,8 @@
 let inputCity = document.querySelector("#valeurCity");
 let bouton = document.querySelector("#valider");
 let polution = document.querySelector("#container");
+let electricityDiv = document.querySelector("#electricity");
+let watercontainer = document.querySelector("#watercontainer");
 let city = "";
 
 bouton.addEventListener("click", () => {
@@ -30,6 +32,8 @@ async function getAirQuality() {
     polution.style.width = "60px";
     polution.style.height = "100px";
     polution.style.backgroundColor = "purple";
+  } else {
+    polution.innerHTML = `Données non disponibles pour la ville ${city}en vue de la taille de cette`;
   }
 }
 
@@ -45,19 +49,43 @@ async function getWaterQuality() {
     indexEau.data[0].conformite_references_bact_prelevement == "C" &&
     indexEau.data[0].conformite_references_pc_prelevement == "C"
   ) {
-    polution.innerText = "Eau conforme !!";
+    watercontainer.innerText = "Eau conforme !!";
   } else {
-    polution.innerText = "Eau non potable !!";
+    watercontainer.innerText = "Eau non potable !!";
+  }else {
+    if
+    polution.innerHTML = `Données non disponibles pour la ville ${city}en vue de la taille de cette`;
   }
 }
 async function getElectricQuality(city) {
-  console.log("je suis dans getElectricQuality");
+  console.log("Je suis dans getElectricQuality");
+
+  // URL pour récupérer la consommation d'électricité de la ville
   const url = `https://opendata.agenceore.fr/api/explore/v2.1/catalog/datasets/conso-elec-gaz-annuelle-par-secteur-dactivite-agregee-commune/records?limit=20&refine=libelle_commune%3A${city}`;
-  console.log("url", url);
+  console.log("URL", url);
+
+  // Récupérer les données de l'API
   const indexElectric = await fetch(url);
   const electric = await indexElectric.json();
-  console.log(
-    "je suis dans getElectricQuality, je regarde electric:",
-    electric.results[0].consototale
-  );
+
+  // Logue la réponse complète de l'API pour voir sa structure
+  console.log("Réponse complète de l'API:", electric);
+
+  // Vérifie si les résultats existent et ont la structure attendue
+  if (electric.results && electric.results.length > 0) {
+    console.log("Test electricity", electric.results[0].consototale);
+
+    const totalElectricity = electric.results[0].consototale;
+
+    // Vérifier si l'élément est présent dans le DOM
+    if (electricityDiv) {
+      electricityDiv.innerHTML = `Consommation d'électricité de ${city} : ${totalElectricity} kWh par an`;
+    } else {
+      console.error("L'élément #electricity n'a pas été trouvé !");
+    }
+  } else {
+    if (electricityDiv) {
+      electricityDiv.innerHTML = `Données non disponibles pour la ville ${city}.`;
+    }
+  }
 }
