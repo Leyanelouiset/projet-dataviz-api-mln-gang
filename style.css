@@ -1,4 +1,5 @@
 body {
     background : linear-gradient(#DCF0F5, #C2E4EC, #A5D7E2);
-    margin : 10.9%;
+    width : 100vw;
+    height : 100vh;
 }
