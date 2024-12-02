@@ -54,6 +54,11 @@ async function getWaterQuality() {
     watercontainer.innerText = "Eau non potable !!";
   }
 }
+
+
+
+
+
 async function getElectricQuality(city) {
   console.log("Je suis dans getElectricQuality");
 
