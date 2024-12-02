@@ -20,20 +20,23 @@ async function getAirQuality() {
   );
   const indexAir = await airQuality.json();
   console.log("test air", indexAir.data.aqi);
-  if (indexAir.data.aqi <= 100) {
-    polution.style.width = "60px";
-    polution.style.height = "100px";
-    polution.style.backgroundColor = "green";
-  } else if (indexAir.data.aqi <= 200) {
-    polution.style.width = "60px";
-    polution.style.height = "100px";
-    polution.style.backgroundColor = "red";
-  } else if (indexAir.data.aqi > 200) {
-    polution.style.width = "60px";
-    polution.style.height = "100px";
-    polution.style.backgroundColor = "purple";
+  if (indexAir.data.aqi <= 70) {
+  //  style.body.background = linear-gradient("#DCF0F5", "#C2E4EC", "#A5D7E2");
+  //   style.body.width ="100vw";
+  //   style.body.height ="100vh";
+  document.body.style.background = "linear-gradient(#DCF0F5, #C2E4EC, #A5D7E2)";
+  document.body.style.width ="100vw";
+  document.body.style.height ="100vh";
+  } else if (indexAir.data.aqi <= 120) {
+    document.body.style.background = "linear-gradient(#E1DB9C, #CAC9C9)";
+    document.body.style.width ="100vw";
+    document.body.style.height ="100vh";
+  } else if (indexAir.data.aqi > 120) {
+    document.body.style.background = "linear-gradient(#708155, #CAC9C9)";
+    document.body.style.width ="100vw";
+    document.body.style.height ="100vh";
   } else {
-    polution.innerHTML = `Données non disponibles pour la ville ${city}en vue de la taille de cette`;
+    polution.innerHTML = `Données non disponibles sur l'air pour cette ville, ${city} `;
   }
 }
 
@@ -87,7 +90,7 @@ async function getElectricQuality(city) {
     }
   } else {
     if (electricityDiv) {
-      electricityDiv.innerHTML = `Données non disponibles pour la ville ${city}.`;
+      electricityDiv.innerHTML = `Données non disponibles pour l'électricité de cette ville ${city}.`;
     }
   }
 }
