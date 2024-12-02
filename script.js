@@ -25,37 +25,42 @@ async function getAirQuality() {
   //   style.body.width ="100vw";
   //   style.body.height ="100vh";
   document.body.style.background = "linear-gradient(#DCF0F5, #C2E4EC, #A5D7E2)";
-  document.body.style.width ="100vw";
-  document.body.style.height ="100vh";
+
   } else if (indexAir.data.aqi <= 120) {
     document.body.style.background = "linear-gradient(#E1DB9C, #CAC9C9)";
-    document.body.style.width ="100vw";
-    document.body.style.height ="100vh";
+
   } else if (indexAir.data.aqi > 120) {
     document.body.style.background = "linear-gradient(#708155, #CAC9C9)";
-    document.body.style.width ="100vw";
-    document.body.style.height ="100vh";
+
   } else {
     polution.innerHTML = `Données non disponibles sur l'air pour cette ville, ${city} `;
   }
+  document.body.style.width ="100vw";
+  document.body.style.height ="100vh";
 }
 
 async function getWaterQuality() {
+  console.log("test eau debut")
   const waterQuality = await fetch(
     `https://hubeau.eaufrance.fr/api/v1/qualite_eau_potable/resultats_dis?nom_commune=${city}`
   );
   const indexEau = await waterQuality.json();
-  console.log("test eau", indexEau.data[0].conformite_limites_bact_prelevement);
-  if (
-    indexEau.data[0].conformite_limites_bact_prelevement == "C" &&
-    indexEau.data[0].conformite_limites_pc_prelevement == "C" &&
-    indexEau.data[0].conformite_references_bact_prelevement == "C" &&
-    indexEau.data[0].conformite_references_pc_prelevement == "C"
-  ) {
-    watercontainer.innerText = "Eau conforme !!";
+  if (indexEau.count > 0) {
+    if (
+      indexEau.data[0].conformite_limites_bact_prelevement == "C" &&
+      indexEau.data[0].conformite_limites_pc_prelevement == "C" &&
+      indexEau.data[0].conformite_references_bact_prelevement == "C" &&
+      indexEau.data[0].conformite_references_pc_prelevement == "C"
+    ) {
+      watercontainer.innerText = "Eau conforme !!";
+    } else {
+      watercontainer.innerText = "Eau non potable !!";
+    }
   } else {
-    watercontainer.innerText = "Eau non potable !!";
+    watercontainer.innerText = `Pas de données sur l'eau à cette ville, ${city}`;
+
   }
+
 }
 
 
