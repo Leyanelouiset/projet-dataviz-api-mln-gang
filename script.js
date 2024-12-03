@@ -24,23 +24,21 @@ async function getAirQuality() {
   const indexAir = await airQuality.json();
   console.log("test air", indexAir.data.aqi);
   if (indexAir.data.aqi <= 70) {
-  document.body.style.background = "linear-gradient(#DCF0F5, #C2E4EC, #A5D7E2)";
-
+    document.body.style.background =
+      "linear-gradient(#DCF0F5, #C2E4EC, #A5D7E2)";
   } else if (indexAir.data.aqi <= 120) {
     document.body.style.background = "linear-gradient(#E1DB9C, #CAC9C9)";
-
   } else if (indexAir.data.aqi > 120) {
     document.body.style.background = "linear-gradient(#708155, #CAC9C9)";
-
   } else {
     polution.innerHTML = `Données non disponibles sur l'air pour cette ville, ${city} `;
   }
-  document.body.style.width ="100vw";
-  document.body.style.height ="100vh";
+  document.body.style.width = "100vw";
+  document.body.style.height = "100vh";
 }
 
 async function getWaterQuality() {
-  console.log("test eau debut")
+  console.log("test eau debut");
   const waterQuality = await fetch(
     `https://hubeau.eaufrance.fr/api/v1/qualite_eau_potable/resultats_dis?nom_commune=${city}`
   );
@@ -53,25 +51,25 @@ async function getWaterQuality() {
       indexEau.data[0].conformite_references_pc_prelevement == "C"
     ) {
       watercontainer.innerText = "✅✅✅";
+      if (goutte1) goutte1.style.fill = "#48C5F2";
+      if (goutte2) goutte2.style.fill = "#48C5F2";
+      for (let i = 0; i < lac.length; i++) {
+        lac[i].style.fill = "#48C5F2";
+      }
     } else {
       if (goutte1) goutte1.style.fill = "#398764";
       if (goutte2) goutte2.style.fill = "#398764";
-      if (lac) { 
+      if (lac) {
         for (let i = 0; i < lac.length; i++) {
-      lac[i].style.fill= "#398764";
-      }}
+          lac[i].style.fill = "#398764";
+        }
+      }
       watercontainer.innerText = "❌❌❌";
     }
   } else {
     watercontainer.innerText = `Pas de données sur l'eau à cette ville, ${city}`;
-
-  }}
-
-
-
-
-
-
+  }
+}
 
 async function getElectricQuality(city) {
   console.log("Je suis dans getElectricQuality");
@@ -105,4 +103,3 @@ async function getElectricQuality(city) {
     }
   }
 }
-
