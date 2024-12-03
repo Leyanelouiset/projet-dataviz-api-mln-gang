@@ -93,7 +93,7 @@ async function getElectricQuality(city) {
 
     // Vérifier si l'élément est présent dans le DOM
     if (electricityDiv) {
-      electricityDiv.innerHTML = `Consommation d'électricité de ${city} : ${totalElectricity} kWh par an`;
+      electricityDiv.innerHTML = `${city} : 💡${totalElectricity}💡`;
     } else {
       console.error("L'élément #electricity n'a pas été trouvé !");
     }

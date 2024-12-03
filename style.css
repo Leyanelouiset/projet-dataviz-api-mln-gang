@@ -1,97 +1,108 @@
 body {
-    background : linear-gradient(#DCF0F5, #C2E4EC, #A5D7E2);
-    width : 100vw;
-    height : 100vh;
+  background: linear-gradient(#dcf0f5, #c2e4ec, #a5d7e2);
+  width: 100vw;
+  height: 100vh;
 }
-
-
 
 #valeur {
-    position : fixed;
-    top: 15%;
-    left: 50vw;
-    transform:translateX(-50%);
-    align-items: center;
-    z-index:2;
+  position: fixed;
+  top: 15%;
+  left: 50vw;
+  transform: translateX(-50%);
+  align-items: center;
+  z-index: 2;
 }
-
 
 #maison {
-    position:fixed;
-    left: 50vw;
-    transform: translateX(-50%);
-    bottom:75px;
-    z-index:1
+  position: fixed;
+  left: 50vw;
+  transform: translateX(-50%);
+  bottom: 75px;
+  z-index: 1;
 }
-
 
 #lacTotal {
-    position :fixed;
-    bottom: 20px;
-    z-index:1;
-    left:29vw;
-    
+  position: fixed;
+  bottom: 20px;
+  z-index: 1;
+  left: 29vw;
 }
-
 
 #herbe {
-   width: 100vw;
-   height: 100px;
-   background-color: #A8D963;
-   position:fixed;
-   bottom:0px;
- }
-
+  width: 100vw;
+  height: 100px;
+  background-color: #a8d963;
+  position: fixed;
+  bottom: 0px;
+}
 
 #nuage1 {
-    position: fixed;
-    top : 10%;
-    left: 15%;
+  position: fixed;
+  top: 10%;
+  left: 15%;
 }
-
 
 #nuage2 {
-    position: fixed;
-    top : 30%;
-    right : 15%;
+  position: fixed;
+  top: 30%;
+  right: 15%;
 }
-
 
 #valider {
-	box-shadow: 0px 10px 14px -7px #3e7327;
-	background:linear-gradient(to bottom, #77b55a 5%, #72b352 100%);
-	background-color:#77b55a;
-	border-radius:4px;
-	border:1px solid #4b8f29;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:13px;
-	font-weight:bold;
-	padding:6px 12px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #5b8a3c;
+  box-shadow: 0px 10px 14px -7px #3e7327;
+  background: linear-gradient(to bottom, #77b55a 5%, #72b352 100%);
+  background-color: #77b55a;
+  border-radius: 4px;
+  border: 1px solid #4b8f29;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 6px 12px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #5b8a3c;
 }
-
 
 #valider:hover {
-	background:linear-gradient(to bottom, #72b352 5%, #77b55a 100%);
-	background-color:#72b352;
+  background: linear-gradient(to bottom, #72b352 5%, #77b55a 100%);
+  background-color: #72b352;
 }
 
-
 #valider:active {
-	position:relative;
-	top:1px;
+  position: relative;
+  top: 1px;
 }
 
 #watercontainer {
-bottom: 50px;
-left: 35vw;
-position:fixed;
-z-index:2;
-
+  bottom: 50px;
+  left: 29vw;
+  margin-top: 10px;
+  position: fixed;
+  z-index: 2;
+  max-width: 30%;
+  color: rgb(25, 25, 27);
+  text-align: center;
+  font-size: 15px;
+  font-weight: 20;
+  margin: 0px auto 30px auto;
+  background-color: #6bd5effc;
+  padding: 5px;
+  border-radius: 15px;
+  box-shadow: 2px 6px 8px#a0a4a3;
 }
 
-    
+#electricity {
+  max-width: 30%;
+  color: rgb(18, 18, 20);
+  text-align: center;
+  font-size: 15px;
+  font-weight: 20;
+  margin: 0px auto 30px auto;
+  margin-top: 30px;
+  background-color: #b6e1eb2e;
+  padding: 5px;
+  border-radius: 15px;
+  box-shadow: 2px 6px 8px#99d2c4;
+}
