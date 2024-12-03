@@ -25,6 +25,14 @@ body {
 }
 
 
+#lac {
+    position :fixed;
+    bottom: 20px;
+    z-index:1;
+    left:29vw;
+}
+
+
 #herbe {
    width: 100vw;
    height: 100px;
