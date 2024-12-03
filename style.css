@@ -30,6 +30,7 @@ body {
     bottom: 20px;
     z-index:1;
     left:29vw;
+    
 }
 
 
@@ -85,6 +86,12 @@ body {
 	top:1px;
 }
 
+#watercontainer {
+bottom: 50px;
+left: 35vw;
+position:fixed;
+z-index:2;
 
+}
 
     

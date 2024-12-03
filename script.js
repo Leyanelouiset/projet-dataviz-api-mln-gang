@@ -52,7 +52,7 @@ async function getWaterQuality() {
       indexEau.data[0].conformite_references_bact_prelevement == "C" &&
       indexEau.data[0].conformite_references_pc_prelevement == "C"
     ) {
-      watercontainer.innerText = "Eau conforme !!";
+      watercontainer.innerText = "✅✅✅";
     } else {
       if (goutte1) goutte1.style.fill = "#398764";
       if (goutte2) goutte2.style.fill = "#398764";
@@ -60,14 +60,14 @@ async function getWaterQuality() {
         for (let i = 0; i < lac.length; i++) {
       lac[i].style.fill= "#398764";
       }}
-      watercontainer.innerText = "Eau non potable !!";
+      watercontainer.innerText = "❌❌❌";
     }
   } else {
     watercontainer.innerText = `Pas de données sur l'eau à cette ville, ${city}`;
 
-  }
+  }}
 
-}
+
 
 
 
