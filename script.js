@@ -4,6 +4,9 @@ let bouton = document.querySelector("#valider");
 let polution = document.querySelector("#container");
 let electricityDiv = document.querySelector("#electricity");
 let watercontainer = document.querySelector("#watercontainer");
+let goutte1 = document.querySelector("#goutte1");
+let goutte2 = document.querySelector("#goutte2");
+let lac = document.querySelectorAll(".lac");
 let city = "";
 
 bouton.addEventListener("click", () => {
@@ -21,9 +24,6 @@ async function getAirQuality() {
   const indexAir = await airQuality.json();
   console.log("test air", indexAir.data.aqi);
   if (indexAir.data.aqi <= 70) {
-  //  style.body.background = linear-gradient("#DCF0F5", "#C2E4EC", "#A5D7E2");
-  //   style.body.width ="100vw";
-  //   style.body.height ="100vh";
   document.body.style.background = "linear-gradient(#DCF0F5, #C2E4EC, #A5D7E2)";
 
   } else if (indexAir.data.aqi <= 120) {
@@ -54,6 +54,12 @@ async function getWaterQuality() {
     ) {
       watercontainer.innerText = "Eau conforme !!";
     } else {
+      if (goutte1) goutte1.style.fill = "#398764";
+      if (goutte2) goutte2.style.fill = "#398764";
+      if (lac) { 
+        for (let i = 0; i < lac.length; i++) {
+      lac[i].style.fill= "#398764";
+      }}
       watercontainer.innerText = "Eau non potable !!";
     }
   } else {

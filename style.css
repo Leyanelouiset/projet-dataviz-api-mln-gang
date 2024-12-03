@@ -25,7 +25,7 @@ body {
 }
 
 
-#lac {
+#lacTotal {
     position :fixed;
     bottom: 20px;
     z-index:1;
