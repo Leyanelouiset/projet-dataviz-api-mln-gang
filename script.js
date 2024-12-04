@@ -24,8 +24,7 @@ async function getAirQuality() {
   const indexAir = await airQuality.json();
   console.log("test air", indexAir.data.aqi);
   if (indexAir.data.aqi <= 70) {
-    document.body.style.background =
-      "linear-gradient(#DCF0F5, #C2E4EC, #A5D7E2)";
+    document.body.style.background = "linear-gradient(#DCF0F5, #C2E4EC, #A5D7E2)";
   } else if (indexAir.data.aqi <= 120) {
     document.body.style.background = "linear-gradient(#E1DB9C, #CAC9C9)";
   } else if (indexAir.data.aqi > 120) {
@@ -103,5 +102,3 @@ async function getElectricQuality(city) {
     }
   }
 }
-
-//hello
