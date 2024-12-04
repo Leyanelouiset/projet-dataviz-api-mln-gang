@@ -4,6 +4,11 @@ body {
   height: 100vh;
 }
 
+/* div {
+  display: flex;
+  align-items: center;
+} */
+
 #valeur {
   position: fixed;
   top: 15%;
@@ -106,3 +111,12 @@ body {
   border-radius: 15px;
   box-shadow: 2px 6px 8px#99d2c4;
 }
+
+.loader-container {
+  text-align: center;
+}
+
+._hide {
+  display: none;
+}
+

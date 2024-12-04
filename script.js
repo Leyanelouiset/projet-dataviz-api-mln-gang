@@ -8,14 +8,35 @@ let goutte1 = document.querySelector("#goutte1");
 let goutte2 = document.querySelector("#goutte2");
 let lac = document.querySelectorAll(".lac");
 let city = "";
+let isLoading = false;
 
 bouton.addEventListener("click", () => {
   city = inputCity.value;
   console.log("test", city);
-  getAirQuality(city);
-  getWaterQuality(city);
-  getElectricQuality(city);
+  fetchScript();
 });
+
+function toggleLoader() {
+  document.querySelector('.loader-container').classList.toggle('_hide', !isLoading);
+}
+
+
+async function fetchScript() {
+  try {
+      isLoading = true;
+      toggleLoader();
+      await getAirQuality(city);
+      await getWaterQuality(city);
+      await getElectricQuality(city);
+  } catch (error) {
+      console.error(error);
+      return 'error';
+  } finally {
+      isLoading = false;
+      toggleLoader();
+  }
+}
+
 
 async function getAirQuality() {
   const airQuality = await fetch(
