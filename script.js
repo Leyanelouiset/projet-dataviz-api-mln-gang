@@ -51,7 +51,7 @@ async function getAirQuality() {
   } else if (indexAir.data.aqi > 120) {
     document.body.style.background = "linear-gradient(#708155, #CAC9C9)";
   } else {
-    polution.innerHTML = `Données non disponibles sur l'air pour cette ville, ${city} `;
+    polution.innerHTML = `Données non disponibles sur l'air pour cette ville, ${city}`;
   }
   document.body.style.width = "100vw";
   document.body.style.height = "100vh";
@@ -71,19 +71,17 @@ async function getWaterQuality() {
       indexEau.data[0].conformite_references_pc_prelevement == "C"
     ) {
       watercontainer.innerText = "✅✅✅";
-      if (goutte1) goutte1.style.fill = "#48C5F2";
-      if (goutte2) goutte2.style.fill = "#48C5F2";
+      goutte1.style.fill = "#48C5F2";
+      goutte2.style.fill = "#48C5F2";
       for (let i = 0; i < lac.length; i++) {
         lac[i].style.fill = "#48C5F2";
       }
     } else {
-      if (goutte1) goutte1.style.fill = "#398764";
-      if (goutte2) goutte2.style.fill = "#398764";
-      if (lac) {
+    goutte1.style.fill = "#398764";
+    goutte2.style.fill = "#398764";
         for (let i = 0; i < lac.length; i++) {
           lac[i].style.fill = "#398764";
         }
-      }
       watercontainer.innerText = "❌❌❌";
     }
   } else {
